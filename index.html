@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#19050d">
+<title>Happy Birthday, Soumia ❤️</title>
+
+<style>
+:root {
+  --wine: #650b2c;
+  --red: #ff244f;
+  --gold: #f5d58b;
+  --white: #fff7fb;
+  --bg: #10030a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: Tahoma, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+#cinema {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 50% 80%, #4c0b26 0%, transparent 55%),
+    linear-gradient(145deg, #080208, #250713 55%, #080208);
+}
+
+#cinema::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.22),
+    transparent 18%,
+    transparent 82%,
+    rgba(0,0,0,.22)
+  );
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 26px 22px;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.045);
+  transition:
+    opacity 1s ease,
+    transform 1.2s ease,
+    visibility 1s;
+}
+
+.scene.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at center, rgba(105, 9, 43, .36), transparent 70%);
+  pointer-events: none;
+}
+
+.scene-content {
+  position: relative;
+  z-index: 3;
+  max-width: 760px;
+  width: 100%;
+}
+
+h1, h2, p {
+  text-wrap: pretty;
+}
+
+h1 {
+  font-size: clamp(30px, 8vw, 58px);
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: clamp(24px, 6vw, 39px);
+  line-height: 1.6;
+}
+
+p {
+  font-size: clamp(16px, 4vw, 22px);
+  line-height: 2;
+}
+
+.gold {
+  color: var(--gold);
+  text-shadow: 0 0 22px rgba(245, 213, 139, .4);
+}
+
+.english {
+  direction: ltr;
+  unicode-bidi: isolate;
+  letter-spacing: 1px;
+}
+
+.small {
+  font-size: 14px;
+  opacity: .8;
+}
+
+.glow {
+  text-shadow:
+    0 0 10px rgba(255, 36, 79, .8),
+    0 0 35px rgba(255, 36, 79, .5);
+}
+
+.start-card {
+  width: min(90%, 410px);
+  padding: 34px 22px;
+  border: 1px solid rgba(245, 213, 139, .55);
+  border-radius: 30px;
+  background: linear-gradient(
+    145deg,
+    rgba(100, 7, 43, .9),
+    rgba(20, 3, 12, .93)
+  );
+  box-shadow:
+    0 0 35px rgba(255, 20, 75, .2),
+    inset 0 0 25px rgba(255, 255, 255, .025);
+  animation: cardFloat 4s ease-in-out infinite;
+}
+
+.start-card .big-heart {
+  font-size: clamp(65px, 16vw, 100px);
+  display: block;
+  margin-bottom: 10px;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 18px #ff174e);
+}
+
+.start-card h1 {
+  font-size: clamp(27px, 7vw, 42px);
+  margin-bottom: 8px;
+}
+
+.main-button {
+  margin-top: 24px;
+  border: 1px solid rgba(255,255,255,.5);
+  padding: 15px 26px;
+  border-radius: 50px;
+  color: white;
+  background: linear-gradient(135deg, #a20d3c, #ed174d);
+  box-shadow: 0 0 25px rgba(255, 36, 79, .38);
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.main-button:active {
+  transform: scale(.95);
+}
+
+.main-button:hover {
+  box-shadow: 0 0 38px rgba(255, 36, 79, .65);
+}
+
+#stars, #particles, #fireworks {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#stars { z-index: 0; }
+#particles { z-index: 4; }
+#fireworks { z-index: 5; }
+
+.moon {
+  position: absolute;
+  top: 9%;
+  left: 12%;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #fff2cf;
+  box-shadow:
+    0 0 20px rgba(255, 242, 207, .65),
+    0 0 65px rgba(255, 242, 207, .24);
+}
+
+.moon::after {
+  content: "";
+  position: absolute;
+  width: 53px;
+  height: 53px;
+  top: -8px;
+  left: 14px;
+  border-radius: 50%;
+  background: #1b0711;
+}
+
+.heart {
+  width: 95px;
+  height: 95px;
+  margin: 18px auto;
+  position: relative;
+  transform: rotate(-45deg);
+  background: linear-gradient(135deg, #ff6687, #d90042 65%, #750020);
+  box-shadow:
+    inset 8px 5px 14px rgba(255,255,255,.2),
+    inset -9px -8px 20px rgba(50,0,15,.5),
+    0 0 35px rgba(255, 24, 74, .5);
+  animation: heartbeat 1.4s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 95px;
+  height: 95px;
+  position: absolute;
+  border-radius: 50%;
+  background: inherit;
+  box-shadow: inherit;
+}
+
+.heart::before {
+  top: -48px;
+  left: 0;
+}
+
+.heart::after {
+  left: 48px;
+  top: 0;
+}
+
+.heart-wrap {
+  position: relative;
+  width: 220px;
+  height: 200px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 12px;
+}
+
+.heart-wrap .heart {
+  transform: rotate(-45deg) scale(.72);
+}
+
+.heart-wrap .heart-label {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  transform: translateY(12px);
+  font-size: 19px;
+  font-weight: bold;
+  direction: ltr;
+  text-shadow: 0 2px 5px #50001a;
+}
+
+.count-number {
+  font-size: clamp(110px, 35vw, 210px);
+  line-height: 1;
+  color: white;
+  font-weight: 900;
+  text-shadow:
+    0 0 15px #ff315b,
+    0 0 55px #b40036;
+  animation: countIn 1.8s ease both;
+}
+
+.scene-label {
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-size: 13px;
+  text-transform: uppercase;
+  direction: ltr;
+}
+
+.typewriter {
+  animation: revealText 2.5s both;
+}
+
+.rose-row {
+  display: flex;
+  gap: 18px;
+  align-items: flex-end;
+  justify-content: center;
+  margin: 20px auto;
+  height: 130px;
+}
+
+.rose {
+  position: relative;
+  width: 55px;
+  height: 105px;
+  transform-origin: bottom center;
+  animation: roseGrow 2s ease-out both;
+}
+
+.rose-head {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 40% 35%, #ff9aa9 0 8%, transparent 12%),
+    radial-gradient(circle at 60% 60%, #ff2856 0 22%, #a0002b 60%, #500019 100%);
+  box-shadow: 0 0 22px rgba(255, 36, 79, .45);
+}
+
+.rose-head::before,
+.rose-head::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 29px;
+  border-radius: 70% 30% 60% 40%;
+  background: linear-gradient(135deg, #ff577a, #8d0029);
+}
+
+.rose-head::before {
+  top: -3px;
+  left: 0;
+  transform: rotate(-35deg);
+}
+
+.rose-head::after {
+  top: 1px;
+  right: -1px;
+  transform: rotate(38deg);
+}
+
+.rose-stem {
+  position: absolute;
+  top: 41px;
+  left: 26px;
+  width: 4px;
+  height: 63px;
+  background: linear-gradient(90deg, #174a2d, #60a86a, #123b25);
+  border-radius: 4px;
+}
+
+.rose-leaf {
+  position: absolute;
+  top: 62px;
+  left: 6px;
+  width: 23px;
+  height: 12px;
+  border-radius: 100% 0 100% 0;
+  background: #286c42;
+  transform: rotate(-25deg);
+}
+
+.cake {
+  position: relative;
+  width: min(85vw, 300px);
+  height: 190px;
+  margin: 24px auto 0;
+}
+
+.cake-layer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12px 12px 22px 22px;
+  background: linear-gradient(90deg, #5e1729, #b85a6d 35%, #8e203d 65%, #42091b);
+  border-bottom: 5px solid #3b0719;
+  box-shadow: 0 12px 18px rgba(0,0,0,.35);
+}
+
+.cake-layer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2%;
+  width: 104%;
+  height: 17px;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #fff1d4, #f2c7d0, #fff1d4);
+}
+
+.layer-bottom {
+  bottom: 0;
+  width: 100%;
+  height: 65px;
+}
+
+.layer-middle {
+  bottom: 57px;
+  width: 78%;
+  height: 58px;
+}
+
+.layer-top {
+  bottom: 107px;
+  width: 55%;
+  height: 47px;
+}
+
+.candle {
+  position: absolute;
+  bottom: 151px;
+  left: 50%;
+  width: 9px;
+  height: 40px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    0deg, #fff1d4 0 8px, #a51a3e 8px 14px
+  );
+  border-radius: 3px;
+}
+
+.flame {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  width: 13px;
+  height: 21px;
+  transform: translateX(-50%);
+  border-radius: 50% 50% 50% 0;
+  background: radial-gradient(circle at 50% 70%, white, #ffdb67 35%, #ff5a18 70%);
+  box-shadow: 0 0 20px #ffb347;
+  animation: flame 0.7s ease-in-out infinite alternate;
+}
+
+.age {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff1cf;
+  font-weight: 900;
+  font-size: 23px;
+  text-shadow: 0 0 10px #fff;
+}
+
+.final-name {
+  font-size: clamp(38px, 10vw, 75px);
+  color: #ffe4e9;
+  text-shadow: 0 0 20px #ff2454, 0 0 60px #c00040;
+  animation: nameGlow 3s ease-in-out infinite alternate;
+}
+
+.final-message {
+  max-width: 640px;
+  padding: 0 8px;
+  font-size: clamp(17px, 4.2vw, 23px);
+}
+
+#music-controls {
+  position: absolute;
+  z-index: 30;
+  bottom: 14px;
+  left: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.music-button {
+  border: 1px solid rgba(245,213,139,.5);
+  color: white;
+  background: rgba(35, 4, 17, .85);
+  border-radius: 30px;
+  padding: 9px 13px;
+  cursor: pointer;
+  font-size: 13px;
+  backdrop-filter: blur(8px);
+}
+
+#music-status {
+  position: absolute;
+  bottom: 64px;
+  left: 14px;
+  z-index: 30;
+  font-size: 12px;
+  color: #ffe1eb;
+  background: rgba(15,0,8,.8);
+  padding: 8px 12px;
+  border-radius: 10px;
+  max-width: 230px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes heartbeat {
+  0%, 100% { scale: 1; }
+  50% { scale: 1.08; }
+}
+
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes countIn {
+  0% { opacity: 0; transform: scale(1.8); }
+  30% { opacity: 1; transform: scale(1); }
+  80% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0; transform: scale(.7); }
+}
+
+@keyframes roseGrow {
+  0% { transform: scale(.1) rotate(-20deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+@keyframes flame {
+  from { transform: translateX(-50%) rotate(-5deg) scale(.9); }
+  to { transform: translateX(-50%) rotate(5deg) scale(1.1); }
+}
+
+@keyframes revealText {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nameGlow {
+  from { filter: brightness(.9); }
+  to { filter: brightness(1.25); }
+}
+
+@media (max-width: 480px) {
+  .scene { padding: 22px 17px; gap: 14px; }
+  .moon { width: 42px; height: 42px; }
+  .moon::after { width: 39px; height: 39px; left: 11px; top: -6px; }
+  .heart-wrap { transform: scale(.85); margin: -10px auto; }
+  .rose-row { gap: 8px; transform: scale(.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<main id="cinema">
+
+  <canvas id="stars"></canvas>
+  <canvas id="particles"></canvas>
+  <canvas id="fireworks"></canvas>
+
+  <div class="moon" aria-hidden="true"></div>
+
+  <!-- 1: شاشة البداية -->
+  <section class="scene active" id="intro">
+    <div class="start-card">
+      <span class="big-heart">❤️</span>
+      <div class="scene-label">A SPECIAL NIGHT</div>
+      <h1 class="gold">Soumia</h1>
+      <p>هناك مفاجأة صغيرة صنعتها لكِ من قلبي.</p>
+      <button class="main-button" id="startButton">
+        اضغطي هنا ❤️
+      </button>
+      <p class="small" style="margin-top:14px">
+        A little surprise, made with love.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2: الرقم 3 -->
+  <section class="scene" id="count3">
+    <div class="count-number">3</div>
+    <p class="scene-label">GET READY</p>
+  </section>
+
+  <!-- 3: الرقم 2 -->
+  <section class="scene" id="count2">
+    <div class="count-number">2</div>
+    <p class="scene-label">SOMETHING BEAUTIFUL</p>
+  </section>
+
+  <!-- 4: الرقم 1 -->
+  <section class="scene" id="count1">
+    <div class="count-number">1</div>
+    <p class="scene-label">JUST FOR YOU</p>
+  </section>
+
+  <!-- 5: تكوّن القلب -->
+  <section class="scene" id="heartScene">
+    <div class="scene-content">
+      <div class="scene-label">MADE WITH LOVE</div>
+      <div class="heart-wrap">
+        <div class="heart"></div>
+        <div class="heart-label">Soumia ❤️</div>
+      </div>
+      <h2 class="gold typewriter">هذا القلب يذكّركِ أنكِ مميزة ❤️</h2>
+    </div>
+  </section>
+
+  <!-- 6: سماء العشاق -->
+  <section class="scene" id="skyScene">
+    <div class="scene-content">
+      <div style="font-size:62px">🌙</div>
+      <h2 class="gold">تحت هذه النجوم...</h2>
+      <p>أتمنى أن تكون أيامكِ هادئة وجميلة،</p>
+      <p>وأن يرافق النور قلبكِ أينما ذهبتِ. ✨</p>
+    </div>
+  </section>
+
+  <!-- 7: قلب الحب -->
+  <section class="scene" id="loveScene">
+    <div class="scene-content">
+      <div class="heart-wrap">
+        <div class="heart"></div>
+        <div class="heart-label english">I LOVE YOU</div>
+      </div>
+      <h2 class="final-name">Soumia ❤️</h2>
+      <p class="gold">أنتِ أجمل تفصيل في حكايتي.</p>
+    </div>
+  </section>
+
+  <!-- 8: الورود -->
+  <section class="scene" id="roseScene">
+    <div class="scene-content">
+      <div class="scene-label">FOR YOU, SOUMIA</div>
+      <h2 class="gold">ورود حمراء من القلب 🌹</h2>
+      <div class="rose-row" aria-label="ورود حمراء">
+        <div class="rose">
+          <div class="rose-head"></div>
+          <div class="rose-stem"></div>
+          <div class="rose-leaf"></div>
+        </div>
+        <div class="rose" style="animation-delay:.4s; transform:scale(1.15)">
+          <div class="rose-head"></div>
+          <div class="rose-stem"></div>
+          <div class="rose-leaf"></div>
+        </div>
+        <div class="rose" style="animation-delay:.8s">
+          <div class="rose-head"></div>
+          <div class="rose-stem"></div>
+          <div class="rose-leaf"></div>
+        </div>
+      </div>
+      <p>لو استطعت، لأهديتكِ حديقة كاملة من الورود. ❤️</p>
+    </div>
+  </section>
+
+  <!-- 9: الكعكة -->
+  <section class="scene" id="cakeScene">
+    <div class="scene-content">
+      <div class="scene-label">MAKE A WISH</div>
+      <h2 class="gold">أطفئي الشموع وتمنّي أمنية 🎂</h2>
+      <div class="cake">
+        <div class="cake-layer layer-bottom"></div>
+        <div class="cake-layer layer-middle"></div>
+        <div class="cake-layer layer-top"></div>
+        <div class="candle"><div class="flame"></div></div>
+        <div class="age">17</div>
+      </div>
+      <p style="margin-top:12px">كل عام وأنتِ بخير يا سمية ❤️</p>
+    </div>
+  </section>
+
+  <!-- 10: عيد الميلاد -->
+  <section class="scene" id="birthdayScene">
+    <div class="scene-content">
+      <div class="scene-label">TODAY IS YOUR MOMENT</div>
+      <h1 class="english gold glow">Happy Birthday</h1>
+      <h2 class="final-name">Soumia ❤️</h2>
+      <p>أتمنى لكِ أيامًا تليق بجمال قلبكِ.</p>
+    </div>
+  </section>
+
+  <!-- 11: الاعتذار -->
+  <section class="scene" id="sorryScene">
+    <div class="scene-content">
+      <div style="font-size:46px">💌</div>
+      <h2 class="gold">رسالة صغيرة من قلبي</h2>
+      <p class="final-message">
+        سمية حبيبتي ❤️، آسف لأنني لم أستطع تقديم هدية مادية بسبب البعد،
+        لذلك صنعت لكِ هذه الهدية من قلبي، تحمل مشاعري وكل الحب الذي أكنّه لكِ.
+        أتمنى أن ترسم هذه المفاجأة ابتسامة على وجهكِ، لأن سعادتكِ تعني لي الكثير.
+      </p>
+    </div>
+  </section>
+
+  <!-- 12: النهاية -->
+  <section class="scene" id="finalScene">
+    <div class="scene-content">
+      <div style="font-size:50px">🌹 ❤️ 🌹</div>
+      <div class="scene-label">FOREVER IN THIS MOMENT</div>
+      <h1 class="final-name">Soumia</h1>
+      <h2 class="english gold">Happy Birthday ❤️</h2>
+      <p class="english glow">I LOVE YOU</p>
+      <p class="final-message">
+        أتمنى أن تظل النجوم شاهدة على كل أمنية جميلة لكِ. ✨
+      </p>
+      <p class="gold">15 October 2010 🎂</p>
+      <p class="small">صُنعت بكل الحب، من أجلكِ وحدكِ ❤️</p>
+    </div>
+  </section>
+
+  <div id="music-controls">
+    <button class="music-button" id="musicButton">🎵 تشغيل الموسيقى</button>
+  </div>
+
+  <div id="music-status" class="hidden" role="status"></div>
+
+  <audio id="music" preload="none" loop>
+    <source
+      src="TAGNE%20%C3%97%20MANAL%20-%20MAAK%20%28%20LYRICS%20-%20%D9%83%D9%84%D9%85%D8%A7%D8%AA%20%29.m4a"
+      type="audio/mp4">
+  </audio>
+
+</main>
+
+<script>
+(() => {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  const scenes = [
+    $("intro"),
+    $("count3"),
+    $("count2"),
+    $("count1"),
+    $("heartScene"),
+    $("skyScene"),
+    $("loveScene"),
+    $("roseScene"),
+    $("cakeScene"),
+    $("birthdayScene"),
+    $("sorryScene"),
+    $("finalScene")
+  ];
+
+  const music = $("music");
+  const startButton = $("startButton");
+  const musicButton = $("musicButton");
+  const musicStatus = $("music-status");
+
+  let started = false;
+  let playing = false;
+  let timers = [];
+  let activeScene = 0;
+
+  function cancelTimers() {
+    timers.forEach(clearTimeout);
+    timers = [];
+  }
+
+  function schedule(fn, ms) {
+    const timer = setTimeout(fn, ms);
+    timers.push(timer);
+    return timer;
+  }
+
+  function showScene(index) {
+    scenes.forEach((scene, i) => {
+      scene.classList.toggle("active", i === index);
+    });
+    activeScene = index;
+  }
+
+  function showMusicStatus(message) {
+    musicStatus.textContent = message;
+    musicStatus.classList.remove("hidden");
+
+    schedule(() => {
+      musicStatus.classList.add("hidden");
+    }, 4000);
+  }
+
+  async function playMusic() {
+    try {
+      await music.play();
+      playing = true;
+      musicButton.textContent = "⏸ إيقاف الموسيقى";
+      musicStatus.classList.add("hidden");
+    } catch (error) {
+      playing = false;
+      musicButton.textContent = "🎵 تشغيل الموسيقى";
+      showMusicStatus(
+        "تعذّر تشغيل الموسيقى. تأكد من رفع ملف الصوت بجانب index.html."
+      );
+    }
+  }
+
+  async function toggleMusic() {
+    if (playing && !music.paused) {
+      music.pause();
+      playing = false;
+      musicButton.textContent = "🎵 استئناف الموسيقى";
+      return;
+    }
+
+    await playMusic();
+  }
+
+  // المدة المستهدفة: 90 ثانية بعد الضغط على البداية.
+  // العد التنازلي 6 ثوانٍ، والقلب 7 ثوانٍ،
+  // والورود والكعكة ورسالة الاعتذار تحتفظ بمددها المطلوبة.
+  const timeline = [
+    { scene: 1, duration: 2000 },  // الرقم 3
+    { scene: 2, duration: 2000 },  // الرقم 2
+    { scene: 3, duration: 2000 },  // الرقم 1
+    { scene: 4, duration: 7000 },  // تكوّن القلب
+    { scene: 5, duration: 10000 }, // السماء
+    { scene: 6, duration: 7000 },  // قلب الحب
+    { scene: 7, duration: 5000 },  // الورود
+    { scene: 8, duration: 5000 },  // الكعكة
+    { scene: 9, duration: 10000 }, // عيد الميلاد
+    { scene: 10, duration: 8000 }, // الاعتذار
+    { scene: 11, duration: 32000 } // النهاية
+  ];
+
+  function startShow() {
+    if (started) return;
+    started = true;
+
+    cancelTimers();
+    showScene(1);
+
+    // محاولة تشغيل الموسيقى بعد تفاعل المستخدم.
+    playMusic();
+
+    let elapsed = 0;
+
+    timeline.forEach(item => {
+      elapsed += item.duration;
+
+      if (item.scene === timeline[timeline.length - 1].scene) {
+        schedule(() => showScene(item.scene), elapsed - item.duration);
+      } else {
+        schedule(() => showScene(item.scene), elapsed);
+      }
+    });
+
+    // يبدأ آخر مشهد عند الثانية 58 ويبقى ظاهرًا.
+    // مجموع المدد هنا 90 ثانية، مع إبقاء النهاية.
+  }
+
+  startButton.addEventListener("click", startShow);
+  musicButton.addEventListener("click", toggleMusic);
+
+  music.addEventListener("error", () => {
+    playing = false;
+    musicButton.textContent = "🎵 تشغيل الموسيقى";
+  });
+
+  // نجوم متحركة على Canvas.
+  const starsCanvas = $("stars");
+  const starsCtx = starsCanvas.getContext("2d");
+  const particlesCanvas = $("particles");
+  const particlesCtx = particlesCanvas.getContext("2d");
+  const fireworksCanvas = $("fireworks");
+  const fireworksCtx = fireworksCanvas.getContext("2d");
+
+  let width = 0;
+  let height = 0;
+  let stars = [];
+  let particles = [];
+  let fireworks = [];
+
+  function resizeCanvas() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    [starsCanvas, particlesCanvas, fi
